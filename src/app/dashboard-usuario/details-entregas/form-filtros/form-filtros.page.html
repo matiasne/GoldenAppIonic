@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filtros</ion-title>
+    <ion-buttons slot="end" (click)="dismiss()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Desde</ion-label>
+    <ion-datetime 
+      displayFormat="DDD. MMM DD, YYYY"
+      monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"
+      [(ngModel)]="filtro.fechaDesde"
+    ></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Hasta</ion-label>
+    <ion-datetime 
+      displayFormat="DDD. MMM DD, YYYY"
+      monthShortNames="Enero, Febrero, mar, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"
+      [(ngModel)]="filtro.fechaHasta"
+    ></ion-datetime>
+  </ion-item>
+  <ion-item  class="item-card">
+    <ion-label position="floating">Campaña</ion-label>
+    <ion-select [(ngModel)]="campanaSeleccionada" (ionChange)="setearContratos()">
+      <ion-select-option *ngFor="let campana of campanas" [value]="campana">{{campana.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
+  
+  <ion-item  class="item-card">
+    <ion-label position="floating">Contrato</ion-label>
+    <ion-select [(ngModel)]="filtro.contrato">
+      <ion-select-option *ngFor="let contrato of contratosSelect" [value]="contrato.CD_CONTRATO">{{contrato.CD_CONTRATO}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+</ion-content>
+
+<ion-footer class="ion-no-border ion-padding"> 
+  <ion-toolbar>   
+    <ion-button slot="start"  color="light" (click)="dismiss()">Cancelar</ion-button>
+    <ion-button slot="end" color="success" (click)="continuar()">Consultar</ion-button>
+  </ion-toolbar>
+</ion-footer> 

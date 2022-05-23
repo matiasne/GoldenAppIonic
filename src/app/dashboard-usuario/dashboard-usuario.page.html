@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{razonSocial}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding dark-background ">
+  <div class="usuario-panel">
+    <img src="../assets/logo_golden.png" alt="">
+    <ion-button *ngIf="admin == '1'" class="btn-rounded-large" size="large" (click)="openAdmin()">Gestionar Usuarios</ion-button>
+    <ion-button class="btn-rounded-large" size="large" (click)="openEntrega()">Consulta de entrega</ion-button>
+    <ion-button class="btn-rounded-large" size="large" (click)="openPagos()">Consulta de pago</ion-button>
+    <ion-button class="btn-rounded-large" size="large" (click)="openDocumentos()">Documentos</ion-button>
+    <ion-button class="btn-rounded-large" color="danger" size="large" (click)="logout()">Cerrar Sesión</ion-button>
+    <div class="logo-container">
+      <img class="logo-icono" src="../../assets/01_nacion.png" alt="">
+    </div>
+    <div class="logo-container">
+      <img class="logo-icono" src="../../assets/02_smn.png" alt="">
+    </div>
+    <div class="logo-container">
+      <img class="logo-icono" src="../../assets/03_twch.png" alt="">
+    </div>
+    
+    
+    
+  </div>
+  
+</ion-content>

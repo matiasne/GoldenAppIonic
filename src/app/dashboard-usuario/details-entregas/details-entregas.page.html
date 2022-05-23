@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Entregas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="openFiltros()">Filtros</ion-button>
+
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button (click)="viewConsultas()">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Cartas Porte</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button (click)="viewTotales()">
+        <ion-icon name="person-circle"></ion-icon>
+        <ion-label>Totales</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+  <span *ngIf="tabActive == 'consultas' && tablaConsultas.rows">
+    <h4>Cartas de porte</h4>
+    <ion-button (click)="downloadTablaConsulta()">Descargar</ion-button>
+    <ngx-datatable 
+      class="material tabla-posicion"  
+      [rows]="tablaConsultas.rows" 
+      [columns]="tablaConsultas.columns"
+      [messages]="{emptyMessage:'Sin datos para mostrar.'}"
+      columnMode="force" 
+      [headerHeight]="50" 
+      [footerHeight]="50" 
+      [rowHeight]="50"
+      [scrollbarV]="true"
+      [scrollbarH]="true"        
+      style="height: 90vh;"
+      > </ngx-datatable>
+    
+  </span>
+  <span *ngIf="tabActive == 'consultas' && !tablaConsultas.rows">
+    
+    <ion-button class="button-rounded" size="large" (click)="openFiltros()"  expand="block">Realizar Consulta</ion-button>
+
+  </span>
+
+  <span *ngIf="tabActive == 'totales'  && tablasT.totales.rows">
+    
+
+  <h4>Totales</h4>  
+  <ion-button (click)="downloadTablaTotales()">Descargar</ion-button>
+  <ngx-datatable *ngIf="tablasT.totales"
+  class="material tabla-posicion"  
+  [rows]="tablasT.totales.rows" 
+  [columns]="tablasT.totales.columns"
+  columnMode="force" 
+    [headerHeight]="50" 
+    [footerHeight]="50" 
+    [rowHeight]="50"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
+    
+    style="height: 40vh;"
+    > </ngx-datatable>
+
+    <h4>Propios</h4>
+    <ion-button (click)="downloadTablaTotalesPropios()">Descargar</ion-button>
+    <ngx-datatable  *ngIf="tablasT.propios"
+  class="material tabla-posicion"  
+  [rows]="tablasT.propios.rows" 
+  [columns]="tablasT.propios.columns"
+  columnMode="force" 
+    [headerHeight]="50" 
+    [footerHeight]="50" 
+    [rowHeight]="50"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
+    
+    style="height: 40vh;"
+    > </ngx-datatable>
+
+    <h4>Terceros</h4>
+    <ion-button (click)="downloadTablaTotalesTerceros()">Descargar</ion-button>
+    <ngx-datatable  *ngIf="tablasT.terceros"
+  class="material tabla-posicion"  
+  [rows]="tablasT.terceros.rows" 
+  [columns]="tablasT.terceros.columns"
+  columnMode="force" 
+    [headerHeight]="50" 
+    [footerHeight]="50" 
+    [rowHeight]="70"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
+    
+    style="height: 40vh;"
+    > </ngx-datatable>
+
+  </span>
+
+  <span *ngIf="tabActive == 'totales' && !tablaConsultas.rows">
+    
+    <ion-button class="button-rounded btn-consulta" size="large"  (click)="openFiltros()"  expand="block">Realizar Consulta</ion-button>
+
+  </span>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="openFiltros()">
+      <ion-icon name="filter"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

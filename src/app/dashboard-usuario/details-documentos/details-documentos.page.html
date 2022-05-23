@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Documentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  
+  <ngx-datatable 
+  class="material tabla-posicion"  
+  [rows]="tabla.rows" 
+  
+  
+    [headerHeight]="50" 
+    [footerHeight]="50" 
+    [rowHeight]="100"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
+    
+    style="height: 90vh;"
+    >
+    <ngx-datatable-column  [width]="500" *ngFor="let column of tabla.columns; let i = index;" name="{{column.name}}" prop="{{column.prop}}">
+      <ng-template (click)="abrir(row)"  let-row="row" ngx-datatable-cell-template>      
+        <span *ngIf="column.prop=='a'" >
+          {{row['a']}}
+        </span>
+        <a style="font-size: 20px;" href="{{row['href']}}">Ver</a>
+        <!--ion-button class="button-rounded btn-consulta" size="large"  (click)="abrir(row)"  expand="block">Ver</ion-button-->
+      </ng-template>    
+    </ngx-datatable-column>
+  
+  </ngx-datatable>
+
+  
+</ion-content>

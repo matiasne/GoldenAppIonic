@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tabla-totales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ngx-datatable *ngIf="tablas.totales"
+  class="material tabla-posicion"  
+  [rows]="tablas.totales.rows" 
+  [columns]="tablas.totales.columns"
+  columnMode="force" 
+    [headerHeight]="50" 
+    [footerHeight]="50" 
+    [rowHeight]="50"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
+    
+    style="height: 40vh;"
+    > </ngx-datatable>
+
+    <ngx-datatable  *ngIf="tablas.propios"
+  class="material tabla-posicion"  
+  [rows]="tablas.propios.rows" 
+  [columns]="tablas.propios.columns"
+  columnMode="force" 
+    [headerHeight]="50" 
+    [footerHeight]="50" 
+    [rowHeight]="50"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
+    
+    style="height: 40vh;"
+    > </ngx-datatable>
+
+    <ngx-datatable  *ngIf="tablas.terceros"
+  class="material tabla-posicion"  
+  [rows]="tablas.terceros.rows" 
+  [columns]="tablas.terceros.columns"
+  columnMode="force" 
+    [headerHeight]="50" 
+    [footerHeight]="50" 
+    [rowHeight]="50"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
+    
+    style="height: 40vh;"
+    > </ngx-datatable>
+
+    <ion-fab vertical="center" horizontal="end" slot="fixed" >
+      <ion-fab-button (click)="openFiltros()">
+        <ion-icon name="filter"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+</ion-content>

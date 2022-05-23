@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="close-btn" slot="end" (click)="dismiss()">
+      <ion-icon  name="close-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Detalles del Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h3>Nombre: {{usuario.username}}</h3>
+  <p>Razon Social: {{usuario.razon_social}}</p>       
+  <p>Cuit: {{usuario.cuit}}</p> 
+
+  <ion-button class="btn" (click)="openCambiarContrasena()">Cambiar contraseña</ion-button>
+  <ion-button class="btn" (click)="openAsignarCuit()">Asignar Cuit</ion-button>
+
+  <h4>Archivos:</h4>
+
+  <form id="subir-archivo" class='form-horizontal ' action="includes/administracion/upload.php" method="POST">
+    <input class='col-md-5 inline-block' type="file" id="file" name="file" (change)="setFile($event)">
+    <ion-button  class="btn" (click)="subirArchivo()">Subir Archivo</ion-button>
+  </form>
+  
+  
+  <ngx-datatable 
+  class="material tabla-posicion"  
+  [rows]="tabla.rows" 
+  
+  
+    [headerHeight]="50" 
+    [footerHeight]="50" 
+    [rowHeight]="70"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
+    
+    style="height: 90vh;"
+    >
+    <ngx-datatable-column  [width]="500" *ngFor="let column of tabla.columns; let i = index;" name="{{column.name}}" prop="{{column.prop}}">
+      <ng-template  let-row="row" ngx-datatable-cell-template>      
+        <span *ngIf="column.prop=='a'" (click)="abrir(row)">
+          {{row['a']}}
+        </span>
+        <ion-button *ngIf="column.prop=='borrar'" (click)="borrar(row)" expand="block">
+          {{column.name}}
+        </ion-button> 
+      </ng-template>    
+    </ngx-datatable-column>
+  
+  </ngx-datatable>
+
+
+</ion-content>

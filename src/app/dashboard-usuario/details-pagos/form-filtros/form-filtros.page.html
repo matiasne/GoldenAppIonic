@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filtros</ion-title>
+    <ion-buttons slot="end" (click)="dismiss()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Desde</ion-label>
+    <ion-datetime 
+      displayFormat="DDD. MMM DD, YYYY"
+      monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"
+      [(ngModel)]="filtro.fechaDesde"
+    ></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Hasta</ion-label>
+    <ion-datetime 
+      displayFormat="DDD. MMM DD, YYYY"
+      monthShortNames="Enero, Febrero, mar, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"
+      [(ngModel)]="filtro.fechaHasta"
+    ></ion-datetime>
+  </ion-item>
+
+</ion-content>
+
+<ion-footer class="ion-no-border ion-padding"> 
+  <ion-toolbar>   
+    <ion-button slot="start"  color="light" (click)="dismiss()">Cancelar</ion-button>
+    <ion-button slot="end" color="success" (click)="continuar()">Consultar</ion-button>
+  </ion-toolbar>
+</ion-footer> 

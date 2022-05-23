@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="close-btn" slot="end" (click)="dismiss()">
+      <ion-icon  name="close-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Asignar CUIT</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="floating">CUIT</ion-label>
+    <ion-input  type="text" [(ngModel)]="cuit" ngModel required></ion-input>
+  </ion-item>
+</ion-content>
+<ion-toolbar>   
+  <ion-button class="btn" color="light" size="large" slot="start" (click)="dismiss()">Cancelar</ion-button>
+  <ion-button class="btn" size="large" slot="end" (click)="cambiar()">Cambiar</ion-button>
+</ion-toolbar> 

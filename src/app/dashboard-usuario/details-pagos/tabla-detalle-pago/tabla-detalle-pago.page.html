@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle Pago</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ngx-datatable 
+  class="material tabla-posicion"  
+  [rows]="tabla.rows" 
+  
+  columnMode="force" 
+    [headerHeight]="50" 
+    [footerHeight]="50" 
+    [rowHeight]="70"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
+    
+    style="height: 90vh;"
+    >
+    <ngx-datatable-column *ngFor="let column of tabla.columns; let i = index;" name="{{column.name}}" prop="{{column.prop}}">
+      <ng-template  let-row="row" ngx-datatable-cell-template> 
+        <ion-button *ngIf="column.name=='pdf'" (click)="abrir(row)" expand="block">
+          PDF
+        </ion-button>
+        {{row[column.prop]}}
+      </ng-template>    
+    </ngx-datatable-column>
+  
+  </ngx-datatable>
+
+   
+ 
+    <!--ion-fab vertical="center" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="openFiltros()">
+      <ion-icon name="filter"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-->
+
+</ion-content>

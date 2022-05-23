@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tabla Pagos</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+  <span *ngIf="tabla.rows">
+    <ngx-datatable 
+    class="material tabla-posicion"  
+    [rows]="tabla.rows" 
+    [messages]="{emptyMessage:'Sin datos para mostrar. Realice una consulta desde el boton filtos'}"
+    columnMode="force" 
+      [headerHeight]="50" 
+      [footerHeight]="50" 
+      [rowHeight]="70"
+      [scrollbarV]="true"
+      [scrollbarH]="true"
+      
+      style="height: 90vh;"
+      >
+      <ngx-datatable-column *ngFor="let column of tabla.columns; let i = index;" name="{{column.name}}" prop="{{column.prop}}">
+        <ng-template  let-row="row" ngx-datatable-cell-template>
+          <span *ngIf="column.name=='Emision'">
+            {{row['DT_EMISION'].date}}
+          </span>         
+          <ion-button *ngIf="column.name=='Más'" (click)="abrir(row)" expand="block">
+            {{column.name}}
+          </ion-button>  
+          <ion-button *ngIf="column.name=='PDF'" (click)="select(row)" expand="block">
+            {{column.name}}
+          </ion-button>
+          {{row[column.prop]}}
+        </ng-template>    
+      </ngx-datatable-column>
+    
+    </ngx-datatable>
+  </span>
+  
+
+  <span *ngIf="!tabla.rows">    
+    <ion-button class="button-rounded btn-consulta" size="large"  (click)="openFiltros()"  expand="block">Realizar Consulta</ion-button>
+  </span>
+
+   
+ 
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="openFiltros()">
+      <ion-icon name="filter"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

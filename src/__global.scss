@@ -1,0 +1,114 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+.btn-rounded-large{
+    width: 100%;
+    border-radius: 20px;
+}
+
+/*
+.btn-rounded-large{
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+.modal-wrapper{
+    border: 5px solid #2d259e !important;
+    border-radius: 10px !important;
+    margin: 20px!important;
+    height: 70vh;
+}
+
+.btn{
+    width: 100%;
+}
+
+
+.close-btn{
+    font-size: 24px;
+    color: #73849a;
+}
+
+
+ion-content{
+    text-align: center;
+}
+
+body {
+    --ion-background-color: #2C3B4E;
+    --ion-text-color: #ffffff;
+    
+}
+
+ion-tab-button{
+    color:white !important;
+}
+
+.ngx-datatable{
+    background-color:#2C3B4E !important;
+    color:#FFC641 !important;
+}
+
+.datatable-header{
+    background-color:#2C3B4E;
+    color:#FFC641;
+}
+
+.datatable-header-cell{
+    background-color:#2C3B4E !important;
+    color:#FFC641 !important;
+}
+
+.datatable-body-cell{
+    background-color:#2C3B4E !important;
+    color:#e2e2e2 !important;
+}
+
+.datatable-pager ul li a{
+    color:#e2e2e2 !important;
+}
+
+.page-count{
+    color:#e2e2e2 !important;
+}
+
+.pager li a{
+    color:#e2e2e2 !important;
+}
+
+ion-item{
+    color:white !important;
+}
+
+p{
+    color:white !important;
+}*/

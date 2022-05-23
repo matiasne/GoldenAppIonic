@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Administración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="10">
+      <ion-input placeholder="Buscar" style="border:1px solid rgb(206, 206, 206); border-radius: 5px;"
+      [(ngModel)]="palabraFiltro"
+      ></ion-input>
+    </ion-col>
+    <ion-col size="2">
+      <ion-button  color="primary" style="margin-top: -1px; height: 42px;"  (click)="buscar()">
+          <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <span *ngIf="usuariosEncontrado.length >0">
+    <span *ngFor="let usuario of usuariosEncontrado"> 
+  
+      <ion-item (click)="openDetails(usuario)">
+        <div slot="start">
+          <ion-icon name="person-outline"></ion-icon>
+        </div>      
+        <ion-label text-wrap>
+         <p> Nombre: {{usuario.username}}</p> 
+          <p>Razon Social: {{usuario.razon_social}}</p>       
+          <p>Cuit: {{usuario.cuit}}</p> 
+        </ion-label>  
+      </ion-item>
+
+    
+      
+  </span>
+  </span>
+  
+
+</ion-content>
